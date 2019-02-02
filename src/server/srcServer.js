@@ -1,7 +1,7 @@
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import config from '../webpack.config.dev';
+import config from '../../webpack.config.dev';
 import open from 'open';
 
 import { createServer } from "http";
@@ -20,7 +20,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join( __dirname, '../src/hotels.html'));
+  res.sendFile(path.join( __dirname, '../client/hotels.html'));
 });
 
 const server = createServer(app).listen(port, () => {

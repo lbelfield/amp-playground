@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "amp-hotel",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel test:watch open:src lint:watch",
-    "open:src": "babel-node tools/srcServer.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "prestart": "babel-node src/server/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch",
+    "open:src": "babel-node src/server/srcServer.js",
+    "lint": "node_modules/.bin/esw webpack.config.* src",
+    "lint:watch": "npm run lint -- --watch"
   },
   "author": "Luke Belfield",
   "license": "MIT",
@@ -26,11 +24,13 @@
     "eslint-plugin-import": "2.0.0",
     "eslint-plugin-react": "7.7.0",
     "eslint-watch": "3.0.0",
+    "eventsource-polyfill": "0.9.6",
     "express": "4.16.3",
     "jsdom": "8.5.0",
     "mocha": "5.2.0",
     "npm-run-all": "1.8.0",
     "open": "0.0.5",
+    "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
