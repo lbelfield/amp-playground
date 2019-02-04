@@ -19,9 +19,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(path.join( __dirname, '../client/hotels.html'));
 });
+
+app.use('/img', express.static(path.join( __dirname, '../img')));
 
 const server = createServer(app).listen(port, () => {
   console.log('server running at ' + port);
